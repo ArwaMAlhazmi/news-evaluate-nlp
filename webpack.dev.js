@@ -8,6 +8,11 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
+    devServer: {
+        proxy: {
+            "/sentimentapi": "http://localhost:8081"
+        }
+    },
     module: {
         rules: [
             {
@@ -26,10 +31,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.SourceMapDevToolPlugin({
-            filename: '[name].js.map',
-            exclude: ['vendor.js']
-        }),
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
