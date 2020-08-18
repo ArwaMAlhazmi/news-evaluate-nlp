@@ -1,6 +1,6 @@
-import { handleError } from './helper.js'
+import { handleError, validateForm } from './helper.js'
 
-//Function to 
+//Function to request api call through proxy server
 const evaluateSentiment = async (url='', userUrl='') => {
 
 	const response = await fetch(url, {
@@ -13,7 +13,6 @@ const evaluateSentiment = async (url='', userUrl='') => {
 
 	//handle not 200 response
 	if(!response.ok){
-		console.log('evaluateSentiment Error thrown');
 		throw new Error;
 	}
 
@@ -21,17 +20,16 @@ const evaluateSentiment = async (url='', userUrl='') => {
 	return data;
 }
 
-//
-const getUserUrl = () => {
+// Function to get the uer url
+const getUserUrl = (evt) => {
 	const userUrl = document.querySelector('#userUrl').value;
 	return userUrl;
 }
 
-//
+//Function to update the UI with the analysis data
 const updateUI = (data) => {
 
 	const evalutionDiv = document.querySelector('#results');
-	evalutionDiv.innerHTML = '';
 
 	Object.keys(data).forEach(key => {
 		const valueHolder = document.createElement('div');
@@ -40,7 +38,6 @@ const updateUI = (data) => {
 		evalutionDiv.appendChild(valueHolder);
 	});
 
- 	// document.querySelector('.urlEntryForm').reset();
 }
 
 /* execution starts here */
@@ -48,14 +45,16 @@ const updateUI = (data) => {
 document.addEventListener('DOMContentLoaded',  () => {
 
 	const evaluateBtn = document.querySelector('#evaluate');
-	evaluateBtn.addEventListener('click', async () => {
+	evaluateBtn.addEventListener('click', async (evt) => {
 
+		document.querySelector('#results').innerHTML = '';
 		try {
-			const userUrl = getUserUrl();
-			const evaluationResult = await evaluateSentiment('/sentimentapi', userUrl);
-			updateUI(evaluationResult);
+			if(validateForm(evt)) {
+				const userUrl = getUserUrl(evt);
+				const evaluationResult = await evaluateSentiment('/sentimentapi', userUrl);
+				updateUI(evaluationResult);
+			}
 		} catch (err) {
-			console.log('inside catch error thrown');
 			handleError(err);
 		}
 

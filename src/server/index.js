@@ -26,29 +26,26 @@ app.get('/', function (req, res) {
 app.post('/sentimentapi', async (req, res) => {
 	const app_key = process.env.API_KEY
 	const apiUrl = `https://api.meaningcloud.com/sentiment-2.1?key=${app_key}&url=${req.body.url}&lang=en`
-	console.log(apiUrl)
+	
+	try {
 
-	let response = await fetch(apiUrl)
+		let response = await fetch(apiUrl)
 
-	//handle not 200 response
-	if(!response.ok){
-		console.log('server api call response error')
-		throw new Error
-	}
+		let data = await response.json()
+		if(data.status.msg === 'OK') {
 
-	let data = await response.json()
-	if(data.status.msg === 'OK') {
+			const evaluation = {}
+			evaluation.agreement = data.agreement
+			evaluation.irony = data.irony
+			evaluation.subjectivity = data.subjectivity
+			evaluation.confidence = data.confidence
+			res.json(evaluation)
+		} else {
+			res.json({Error: data.status.msg})
+		}
 
-		const evaluation = {}
-		evaluation.agreement = data.agreement
-		evaluation.irony = data.irony
-		evaluation.subjectivity = data.subjectivity
-		evaluation.confidence = data.confidence
-		res.json(evaluation)
-	} else {
-		console.log('server api call data error')
-		throw new Error(data.status.msg)
-		//res.json({msg: data.status.msg})
+	} catch {
+		res.status(500).send({status: 'error'})
 	}
 	
 })

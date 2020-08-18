@@ -1,0 +1,35 @@
+form {
+    border: 1px solid rgba(225, 222, 217, 1);;
+    border-radius: 3px;
+    padding: 40px;
+    background-color: rgba(225, 222, 217, 0.4);
+
+    label {
+    	font-family: monospace;
+    	font-size: 1.2em;
+    	font-weight: bold;
+    	color: #2b2a2a;
+    }
+
+    input {
+	    padding: 5px 20px;
+	    width: 100%;
+	    line-height: 16px;
+	    margin: 10px 0;
+	}
+
+	.validation-text {
+		display: none;
+	}
+}
+
+.was-validated {
+	input {
+		border: 1px solid #C70039;
+	}
+
+	.validation-text {
+		display: block;
+		color: #C70039;
+	}
+}
