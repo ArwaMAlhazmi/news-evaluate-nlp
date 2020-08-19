@@ -1,7 +1,8 @@
-import { handleError, validateForm } from './helper.js'
+import { handleError, validateForm } from './helper.js';
+const fetch = require('node-fetch');
 
 //Function to request api call through proxy server
-const evaluateSentiment = async (url='', userUrl='') => {
+export const evaluateSentiment = async (url='', userUrl='') => {
 
 	const response = await fetch(url, {
 		method: "POST",
@@ -21,7 +22,7 @@ const evaluateSentiment = async (url='', userUrl='') => {
 }
 
 // Function to get the uer url
-const getUserUrl = (evt) => {
+const getUserUrl = () => {
 	const userUrl = document.querySelector('#userUrl').value;
 	return userUrl;
 }

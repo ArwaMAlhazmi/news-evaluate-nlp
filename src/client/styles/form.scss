@@ -1,5 +1,5 @@
 form {
-    border: 1px solid rgba(225, 222, 217, 1);;
+    border: 2px solid rgba(225, 222, 217, 1);
     border-radius: 3px;
     padding: 40px;
     background-color: rgba(225, 222, 217, 0.4);
@@ -14,8 +14,10 @@ form {
     input {
 	    padding: 5px 20px;
 	    width: 100%;
-	    line-height: 16px;
+	    line-height: 20px;
 	    margin: 10px 0;
+	    border: .5px solid #A9A9A9;
+	    border-radius: 5px;
 	}
 
 	.validation-text {
