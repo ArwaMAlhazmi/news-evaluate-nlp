@@ -1,12 +1,13 @@
 form {
-    border: 2px solid rgba(225, 222, 217, 1);
+    border: 2.5px solid rgba(225, 222, 217, 1);
     border-radius: 3px;
     padding: 40px;
     background-color: rgba(225, 222, 217, 0.4);
+    margin: 0rem 1rem;
 
     label {
     	font-family: monospace;
-    	font-size: 1.2em;
+    	font-size: 1.5rem;
     	font-weight: bold;
     	color: #2b2a2a;
     }
@@ -14,10 +15,30 @@ form {
     input {
 	    padding: 5px 20px;
 	    width: 100%;
-	    line-height: 20px;
+	    line-height: 30px;
 	    margin: 10px 0;
 	    border: .5px solid #A9A9A9;
 	    border-radius: 5px;
+	}
+
+	button {
+		margin: 1rem auto;
+		color: #494949 !important;
+		text-transform: uppercase;
+		text-decoration: none;
+		background: #ffffff;
+		padding: .5rem;
+		border: 1px solid #494949 !important;
+		border-radius: 0px; 
+		display: inline-block;
+		transition: all 0.4s ease 0s;
+
+		&:hover {
+			color: #ffffff !important;
+			background: rgb(92, 92, 91);
+			border: 1px solid rgb(92, 92, 91) !important;
+			transition: all 0.4s ease 0s;
+		}
 	}
 
 	.validation-text {

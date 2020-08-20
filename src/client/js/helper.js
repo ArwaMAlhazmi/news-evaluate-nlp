@@ -21,6 +21,10 @@ export const validateForm = (evt) => {
 		urlInput.nextElementSibling.innerHTML = 'Enter a valid url please';
 	};
 
+	if(urlInput.validity.valueMissing){
+		urlInput.nextElementSibling.innerHTML = 'Enter a url please';
+	};
+
 	if (urlInputForm.checkValidity() === false){
 
 		evt.preventDefault();

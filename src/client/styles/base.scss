@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url(../imgs/3.jpg);
+    background: url(../imgs/background.jpg);
     background-size: cover;
 }
 
@@ -17,9 +17,35 @@ main {
 
 section {
     max-width: 800px;
-    margin: 50px auto;
-    border: 2px solid rgba(132, 132, 130, 1);
+    margin: 30px auto;
+}
+
+.resultsSec {
+	border: 1.5px solid rgba(73, 73, 73, 1);
     border-radius: 3px;
     padding: 40px;
-    background-color: rgba(132, 132, 130, 0.8);
+    background-color: rgba(73, 73, 73, 0.8);
+    margin: 0rem 1rem;
+
+    h1 {
+    	font-family: monospace;
+    	font-size: 1.5rem;
+    	font-weight: bold;
+    	color: #e1ded9;
+    }
+
+
+	div {
+		color: white;
+		padding: .5rem;
+	}
+
+	.key {
+		text-transform: capitalize;
+		font-weight: bold;
+	}
+
+	.value {
+
+	}
 }

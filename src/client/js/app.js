@@ -35,7 +35,9 @@ const updateUI = (data) => {
 	Object.keys(data).forEach(key => {
 		const valueHolder = document.createElement('div');
 		valueHolder.classList.add(`${key}`);
-		valueHolder.innerHTML = `${key} : ${data[key]}`;
+		valueHolder.innerHTML = `<span class="key">${key}: </span>
+								<span class="value"> ${data[key]}</span>
+								`;
 		evalutionDiv.appendChild(valueHolder);
 	});
 
