@@ -5,13 +5,12 @@ const fetch = require('node-fetch')
 const mockAPIResponse = require('./mockAPI.js')
 //Require environment variables
 require('dotenv').config()
-// const app_key = process.env.API_KEY
 
 const app = express()
 
 /* Middleware*/
-// app.use(express.static('dist'))
-app.use(express.static('../../dist'))
+app.use(express.static('dist'))
+// app.use(express.static('../../dist'))
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -19,8 +18,8 @@ app.use(bodyParser.json());
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('../../dist/index.html'))
+    res.sendFile('dist/index.html')
+    // res.sendFile(path.resolve('../../dist/index.html'))
 })
 
 app.post('/sentimentapi', async (req, res) => {
