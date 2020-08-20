@@ -2,6 +2,7 @@ var path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch')
+const mockAPIResponse = require('./mockAPI.js')
 //Require environment variables
 require('dotenv').config()
 
