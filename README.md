@@ -5,7 +5,7 @@
 * [Project Overview](#Project-Overview)
 * [What Does the Evaluts News NLP App Do?](#hat-Does-the-Evaluts-News-NLP-App-Do?)
 * [Implemented Functionality](#Implemented-Functionality)
-* [Instructions for Running the App](#Instructions-for-Running-the-Blog)
+* [Running the App](#Running-the-App)
 
 ## Project Overview
 
@@ -26,15 +26,8 @@ The Evaluts News NLP App is a web tool that allows users to run Natural Language
 - Using Sass for styling.
 - Respnsive mobile-friendly layout.
 - Setting up a service worker in webpack.
+- Deploying the app
 
-## Instructions for Running the App
+## Running the App
 
-1. Clone the GitHub repository.
-2. Install Node.js and Express.js.
-3. Run ```node server.js``` in the root.
-4. Start the app on localhost:3000
-
-
-## Deploying
-
-A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
+To use the app go to https://news-evaluate-nlp.herokuapp.com/
