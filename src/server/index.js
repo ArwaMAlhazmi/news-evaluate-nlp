@@ -27,6 +27,12 @@ app.post('/sentimentapi', async (req, res) => {
 	
 	try {
 
+		const polarityValues = {'P+': 'strong positive',
+								'P': 'positive',
+								'NEU': 'neutral',
+								'N': 'negative',
+								'N+': 'strong negative',
+								'NONE': 'without sentiment'}
 		let response = await fetch(apiUrl)
 
 		let data = await response.json()
@@ -37,6 +43,7 @@ app.post('/sentimentapi', async (req, res) => {
 			evaluation.irony = data.irony
 			evaluation.subjectivity = data.subjectivity
 			evaluation.confidence = data.confidence
+			evaluation.polarity = polarityValues[data.score_tag]
 			res.json(evaluation)
 		} else {
 			res.json({Error: data.status.msg})
